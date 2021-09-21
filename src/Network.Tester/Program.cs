@@ -8,14 +8,14 @@ namespace Network.Tester
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Network Tester is running");
 
-            var entityContext = new EntityContext(Configuration["EntityContext"]);
-            var wineryRepository = new WineryRepository(entityContext);
+            //var entityContext = new EntityContext(Configuration["EntityContext"]);
+            //var wineryRepository = new WineryRepository(entityContext);
 
-            var wineries = wineryRepository.GetAll().ToList();
+            //var wineries = wineryRepository.GetAll().ToList();
             
-            Console.WriteLine($"Winery count {wineries.Count}");
+            //Console.WriteLine($"Winery count {wineries.Count}");
         }
     }
 }

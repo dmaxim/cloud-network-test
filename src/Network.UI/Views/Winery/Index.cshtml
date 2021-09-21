@@ -1,0 +1,22 @@
+@model WineryIndexModel
+
+
+<h3>Wineries</h3>
+
+<div class="card">
+    <div class="card-title">Winery List</div>
+    <div class="card-body table-responsive table-striped">
+        <table class="table">
+            <thead>
+            <tr>
+                <th id="wineryId">Winery Id</th>
+                <th id="name">Name</th>
+                <th id="address">Address</th>
+            </tr>
+            </thead>
+            <tbody>
+            @Html.DisplayFor(model => model.Wineries)
+            </tbody>
+        </table>
+    </div>
+</div>
