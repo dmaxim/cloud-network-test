@@ -10,12 +10,12 @@ namespace Network.Tester
         {
             Console.WriteLine("Network Tester is running");
 
-            //var entityContext = new EntityContext(Configuration["EntityContext"]);
-            //var wineryRepository = new WineryRepository(entityContext);
-
-            //var wineries = wineryRepository.GetAll().ToList();
-            
-            //Console.WriteLine($"Winery count {wineries.Count}");
+            // var entityContext = new EntityContext();
+            // var wineryRepository = new WineryRepository(entityContext);
+            //
+            // var wineries = wineryRepository.GetAll().ToList();
+            //
+            // Console.WriteLine($"Winery count {wineries.Count}");
         }
     }
 }

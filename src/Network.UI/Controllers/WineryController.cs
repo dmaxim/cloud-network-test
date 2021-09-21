@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Network.Tester.Data;
@@ -21,8 +22,8 @@ namespace Network.UI.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            
-            return View(new WineryIndexModel(GetWineries()));
+            var wineries = _wineryRepository.GetAll().ToList();
+            return View(new WineryIndexModel(wineries));
         }
 
 
