@@ -1,0 +1,49 @@
+# Create Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: network-test
+---
+# Create Service Account
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: network-ui
+  namespace: network-test
+---
+# Create Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: network-ui
+  labels:
+    app: network-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: network-ui
+  template:
+    metadata:
+      labels:
+        app: network-ui
+    spec:
+      containers:
+      - name: web-ui
+        image: dmaxim/network.ui:v1
+        resources:
+          requests:
+            memory: "200Mi"
+            cpu: "250m"
+          limits:
+            memory: "200Mi"
+            cpu: "250m"
+        env:
+        - name: EntityContext
+          valueFrom:
+            secretKeyRef:
+              name: network-ui-secrets
+              key: EntityContext
+        ports:
+        - containerPort: 80
+  

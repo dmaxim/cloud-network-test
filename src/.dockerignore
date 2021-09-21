@@ -1,0 +1,17 @@
+.dockerignore
+.env
+.git
+.gitignore
+.vs
+.vscode
+docker-compose.yml
+docker-compose.*.yml
+*/bin
+*/obj
+**/bin/
+**/obj/
+**/Dockerfile*
+**/*.user
+**/packages/*
+**/appsettings.Development.json
+**/appsettings.secrets.json
