@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mx.EntityFramework.Contracts", "Mx.EntityFramework.Contracts\Mx.EntityFramework.Contracts.csproj", "{06F77B2B-844C-414A-B483-7985BC445A7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mx.EntityFramework", "Mx.EntityFramework\Mx.EntityFramework.csproj", "{4DED01F4-F232-42F8-AA8D-520E268A475E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Network.Tester", "Network.Tester\Network.Tester.csproj", "{4E8267C4-45E0-4684-8BBC-7FC7E7D0B241}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06F77B2B-844C-414A-B483-7985BC445A7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06F77B2B-844C-414A-B483-7985BC445A7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06F77B2B-844C-414A-B483-7985BC445A7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06F77B2B-844C-414A-B483-7985BC445A7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DED01F4-F232-42F8-AA8D-520E268A475E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DED01F4-F232-42F8-AA8D-520E268A475E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DED01F4-F232-42F8-AA8D-520E268A475E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DED01F4-F232-42F8-AA8D-520E268A475E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E8267C4-45E0-4684-8BBC-7FC7E7D0B241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E8267C4-45E0-4684-8BBC-7FC7E7D0B241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E8267C4-45E0-4684-8BBC-7FC7E7D0B241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E8267C4-45E0-4684-8BBC-7FC7E7D0B241}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
