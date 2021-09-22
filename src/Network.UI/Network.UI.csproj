@@ -10,4 +10,9 @@
       <ProjectReference Include="..\Network.Tester\Network.Tester.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Rebus.AzureServiceBus" Version="9.0.5" />
+      <PackageReference Include="Rebus.ServiceProvider" Version="6.4.1" />
+    </ItemGroup>
+
 </Project>

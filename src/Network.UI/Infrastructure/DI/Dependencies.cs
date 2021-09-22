@@ -2,6 +2,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Mx.EntityFramework.Contracts;
 using Network.Tester.Data;
+using Network.UI.Messaging;
+using Rebus.Config;
+using Rebus.ServiceProvider;
 
 namespace Network.UI.Infrastructure.DI
 {
@@ -15,7 +18,14 @@ namespace Network.UI.Infrastructure.DI
                 return new EntityContext(entityContextConnectionString);
             });
 
+            var asbConnection = config["ServiceBus"];
+            services.AddRebus((configurer, provider) =>
+            {
+                return configurer.Transport(transport => transport.UseAzureServiceBusAsOneWayClient(asbConnection));
+            });
+            
             services.AddTransient<IWineryRepository, WineryRepository>();
+            services.AddTransient<IMessageClient, MessageClient>();
             return services;
         }
         
