@@ -23,6 +23,12 @@ namespace Network.UI.Infrastructure.DI
             {
                 return configurer.Transport(transport => transport.UseAzureServiceBusAsOneWayClient(asbConnection));
             });
+
+            var azureStorageConnection = config["AzureStorage"];
+            services.AddScoped<IQueueClient>(provider =>
+            {
+                return new NetworkQueueClient(azureStorageConnection);
+            });
             
             services.AddTransient<IWineryRepository, WineryRepository>();
             services.AddTransient<IMessageClient, MessageClient>();
