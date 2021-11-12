@@ -1,11 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Azure.Identity;
+using Azure.Extensions.AspNetCore.Configuration.Secrets;
+using Azure.Security.KeyVault.Secrets;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.AzureKeyVault;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+
 
 namespace Network.UI
 {
@@ -23,6 +24,19 @@ namespace Network.UI
                     configurationBuilder.AddJsonFile("appsettings.json", false, reloadOnChange: true);
                     configurationBuilder.AddJsonFile("appsettings.secrets.json", true, reloadOnChange: true);
                     configurationBuilder.AddEnvironmentVariables();
+
+                    var interimConfiguration = configurationBuilder.Build();
+                    var secretClient = new SecretClient(
+                        new Uri(interimConfiguration["KeyVaultUrl"]),
+                        new DefaultAzureCredential(
+                            new DefaultAzureCredentialOptions
+                            {
+                                ExcludeVisualStudioCodeCredential = true,
+                                ExcludeVisualStudioCredential = true
+                            }));
+                    configurationBuilder.AddAzureKeyVault(secretClient, new KeyVaultSecretManager());
+
+
                 })
                 .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
     }

@@ -10,6 +10,7 @@ namespace Network.Tester.Data
     {
         private readonly string _connectionString;
         private const string DefaultSchema = "dbo";
+        private const string ConfigurationSchema = "configuration";
 
         public EntityContext(string connectionString)
         {
@@ -33,10 +34,10 @@ namespace Network.Tester.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Winery>()
-                .ToTable("Winery", DefaultSchema)
-                .Property(winery => winery.WineryName)
-                .IsUnicode(false);
+            modelBuilder.Entity<Corp>()
+                .ToTable("Corp", ConfigurationSchema);
+
+
         }
     }
 }
