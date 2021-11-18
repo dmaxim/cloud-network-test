@@ -23,20 +23,20 @@ namespace Network.UI.Infrastructure.DI
 
             services.Configure<BaseUrisConfiguration>(config.GetSection("BaseUris"));
 
-            //var asbConnection = config["ServiceBus"];
-            //services.AddRebus((configurer, provider) =>
-            //{
-            //    return configurer.Transport(transport => transport.UseAzureServiceBusAsOneWayClient(asbConnection));
-            //});
+            var asbConnection = config["ServiceBus"];
+            services.AddRebus((configurer, provider) =>
+            {
+                return configurer.Transport(transport => transport.UseAzureServiceBusAsOneWayClient(asbConnection));
+            });
 
-            //var azureStorageConnection = config["AzureStorage"];
-            //services.AddScoped<IQueueClient>(provider =>
-            //{
-            //    return new NetworkQueueClient(azureStorageConnection);
-            //});
-            
+            var azureStorageConnection = config["AzureStorage"];
+            services.AddScoped<IQueueClient>(provider =>
+            {
+                return new NetworkQueueClient(azureStorageConnection);
+            });
+
             services.AddTransient<IWineryRepository, WineryRepository>();
-           // services.AddTransient<IMessageClient, MessageClient>();
+            services.AddTransient<IMessageClient, MessageClient>();
             services.AddTransient<ICorpRepository, CorpRepository>();
             services.AddHttpClient<ITestWebClient, TestWebClient>()
                 .ConfigureHttpClient((provider, client) =>

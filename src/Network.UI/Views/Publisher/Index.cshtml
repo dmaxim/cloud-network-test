@@ -1,11 +1,21 @@
 
 
-<h2>My Publisher</h2>
+<h2>Test Publisher</h2>
 <div class="card">
-    <div class="card-title">Publisher</div>
+    <div class="card-title">Queue Publisher</div>
     <div class="card-body">
         <form asp-action="Publish" asp-controller="Publisher">
-            <input type="submit" class="btn btn-sm btn-primary" value="Publish">
+            <input type="submit" class="btn btn-sm btn-primary" value="Publish to Queue">
+        </form>
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-title">Bus Publisher</div>
+    <div class="card-body">
+        <form asp-action="PublishBus" asp-controller="Publisher">
+            <input type="submit" class="btn btn-sm btn-primary" value="Publish to Bus">
         </form>
     </div>
 </div>

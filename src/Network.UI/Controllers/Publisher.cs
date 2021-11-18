@@ -34,6 +34,18 @@ namespace Network.UI.Controllers
             await _queueClient.Publish(eventList).ConfigureAwait(false);
             return RedirectToAction("Index");
         }
-        
+
+        [HttpPost]
+        public async Task<IActionResult> PublishBus()
+        {
+            var eventList = new List<DemoEvent>()
+            {
+                new DemoEvent(DateTime.Now.AddDays(-3), "EventOne", "New"),
+                new DemoEvent(DateTime.Now.AddDays(-2), "EventTwo", "New"),
+                new DemoEvent(DateTime.Now, "EventThree", "New"),
+            };
+            await _messageClient.Publish(eventList).ConfigureAwait(false);
+            return RedirectToAction("Index");
+        }
     }
 }
