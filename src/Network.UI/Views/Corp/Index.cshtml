@@ -1,0 +1,19 @@
+﻿@model CorpIndexViewModel
+<h3>Testing DB Connection</h3>
+
+<div class="card">
+    <div class="card-title">Corp List</div>
+    <div class="card-body table-responsive table-striped">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Offset</th>
+            </tr>
+            </thead>
+            <tbody>
+            @Html.DisplayFor(model => model.Corps)
+            </tbody>
+        </table>
+    </div>
+</div>
