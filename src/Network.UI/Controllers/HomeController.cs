@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using Network.UI.Infrastructure.Configuration;
 using Network.UI.Models;
 
 namespace Network.UI.Controllers
@@ -12,15 +14,16 @@ namespace Network.UI.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly NetworkTestConfiguration _configuration;
+        public HomeController(ILogger<HomeController> logger, IOptions<NetworkTestConfiguration>configuration)
         {
             _logger = logger;
+            _configuration = configuration.Value;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(_configuration);
         }
 
         public IActionResult Privacy()
