@@ -34,10 +34,11 @@ namespace Network.Tester.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Corp>()
-                .ToTable("Corp", ConfigurationSchema);
+           // modelBuilder.Entity<Corp>()
+             //   .ToTable("Corp", ConfigurationSchema);
 
-
+             modelBuilder.Entity<Winery>()
+                 .ToTable("Winery", DefaultSchema);
         }
     }
 }

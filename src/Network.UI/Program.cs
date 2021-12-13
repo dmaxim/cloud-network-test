@@ -25,16 +25,16 @@ namespace Network.UI
                     configurationBuilder.AddJsonFile("appsettings.secrets.json", true, reloadOnChange: true);
                     configurationBuilder.AddEnvironmentVariables();
 
-                    var interimConfiguration = configurationBuilder.Build();
-                    var secretClient = new SecretClient(
-                        new Uri(interimConfiguration["KeyVaultUrl"]),
-                        new DefaultAzureCredential(
-                            new DefaultAzureCredentialOptions
-                            {
-                                ExcludeVisualStudioCodeCredential = true,
-                                ExcludeVisualStudioCredential = true
-                            }));
-                    configurationBuilder.AddAzureKeyVault(secretClient, new KeyVaultSecretManager());
+                    // var interimConfiguration = configurationBuilder.Build();
+                    // var secretClient = new SecretClient(
+                    //     new Uri(interimConfiguration["KeyVaultUrl"]),
+                    //     new DefaultAzureCredential(
+                    //         new DefaultAzureCredentialOptions
+                    //         {
+                    //             ExcludeVisualStudioCodeCredential = true,
+                    //             ExcludeVisualStudioCredential = true
+                    //         }));
+                    // configurationBuilder.AddAzureKeyVault(secretClient, new KeyVaultSecretManager());
 
 
                 })
